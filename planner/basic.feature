@@ -17,6 +17,25 @@ Feature: Assign team roles
 			| Admin  | Scrum Team Member |
 			| Admin  | Guest |
 
+Feature: Update status and information on work items
+	In order to do any work
+	As a Scrum Team Member
+	I should be able to add information (text, binary files) and update status for a workitem assigned to me
+
+	Scenario Outline: Update work items
+		Given I am logged in with role Scrum Team Member
+		When I <action> an <type> work item
+		Then I should be able to "view" <type>
+
+		Examples:
+			| role              | action | type |
+			| Scrum Team Member | update | Program |
+			| Scrum Team Member | update | Product |
+			| Scrum Team Member | update | Project |
+			| Scrum Team Member | update | Backlog |
+			| Scrum Team Member | update | Release |
+			| Scrum Team Member | update | Sprint |
+
 Feature: Operate on work items
 	In order to do any work
 	As a Product Manager or Owner
