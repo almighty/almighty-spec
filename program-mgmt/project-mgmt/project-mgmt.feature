@@ -11,8 +11,13 @@ And I should be able to deploy build artifacts for a project to various environm
   Scenario: Create Project
   
     Given a registered user,
-     When I create a project with a unique name
+     When I create a project with a unique <project_name> of a specific <project_type>
      Then a new project should be created.
+	 
+	 Examples:
+	 |	project_name		|	project_type	|
+	 |	Pizza The Hut		|	Scrum			|
+	 |	Pizza The Hut		|	CMMI			|
   
   Scenario: Link Project with Source code repository
   
